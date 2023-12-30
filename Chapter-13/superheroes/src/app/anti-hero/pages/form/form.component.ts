@@ -28,6 +28,7 @@ export class FormComponent implements OnInit {
 
   }
 
+  // Dispatch the action based on the passed value from the antiHero component
   formAction(data: {value: AntiHero, action: string}) {
     switch(data.action) {
       case "Create" : {
