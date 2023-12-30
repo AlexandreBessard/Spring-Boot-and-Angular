@@ -7,7 +7,10 @@ import { AntiHero } from '../models/anti-hero.interface';
 import { AntiHeroService } from '../services/anti-hero.service';
 import { AntiHeroActions } from './anti-hero.actions';
 
- 
+
+/*
+Responsible for calling our external APIs
+ */
 @Injectable()
 export class AntiHeroEffects {
  
@@ -15,10 +18,15 @@ export class AntiHeroEffects {
   // set retrieved anti hero list in the state
   getAntiHeroes$ = createEffect(() => {
     return this.actions$.pipe(
+        // if GET_ANTI_HERO_LIST is dispatched, this effect will be called
         ofType(AntiHeroActions.GET_ANTI_HERO_LIST),
+        // call the endpoint
         mergeMap(() => this.antiHeroService.getAntiHeroes()
+            // dispatch another action that sets the anti-heroes list in our state
           .pipe(
-            map(antiHeroes => ({ type: AntiHeroActions.SET_ANTI_HERO_LIST, antiHeroes })),
+            map(antiHeroes => ({ type: AntiHeroActions.SET_ANTI_HERO_LIST,
+                // payload
+                antiHeroes })),
             catchError(() => EMPTY)
           ))
         )

@@ -7,11 +7,19 @@ export interface AntiHeroState {
 }
 
 export const initialState: AntiHeroState = {
+    // Initial state
     antiHeroes: []
 }
 
+// Mutate value of our state
 export const antiHeroReducer = createReducer(
   initialState,
-  on(setAntiHeroList, (state, { antiHeroes }) => { return {...state, antiHeroes}}),
+  on(
+      // Actions, modify antiHeroes state
+      setAntiHeroList,
+      // Initial state              holds the list of antiHero objects from the API
+      (state, { antiHeroes }) => {
+          // modify the antiHeroes state with the retrieved list, we have returned {…state, antiHeroes}
+          return {...state, antiHeroes}}),
 
   );

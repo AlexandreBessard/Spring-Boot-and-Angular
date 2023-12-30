@@ -17,6 +17,7 @@ import { selectAntiHeroes } from '../../state/anti-hero.selectors';
 export class ListComponent implements OnInit {
   // sample data of anti hero
   antiHeroes: ReadonlyArray<AntiHero> = [];
+  // Observable, get the array from the state
   antiHeroes$ = this.store.select(selectAntiHeroes());
 
   headers: {headerName: string, fieldName: keyof AntiHero}[] = [
@@ -32,12 +33,15 @@ export class ListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    // When something happens in your Angular application (like a user interaction), you dispatch an action
+    // Invoked the endpoint
     this.store.dispatch({type: AntiHeroActions.GET_ANTI_HERO_LIST});
     this.assignAntiHeroes();
   }
 
   assignAntiHeroes() {
     this.antiHeroes$.subscribe((data) => {
+      // get data from the state
       this.antiHeroes = data;
     });
   }

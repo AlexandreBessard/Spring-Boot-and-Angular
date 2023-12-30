@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
+      // antiHeroState -> key for our anti-hero state, the second is the function returned from the createReducer() function
     StoreModule.forFeature('antiHeroState', antiHeroReducer),
     EffectsModule.forFeature([AntiHeroEffects])
   ]
