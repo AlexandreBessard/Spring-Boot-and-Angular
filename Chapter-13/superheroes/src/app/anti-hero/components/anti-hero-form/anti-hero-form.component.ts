@@ -28,6 +28,7 @@ export class AntiHeroFormComponent implements OnInit {
     this.checkAction();
   }
 
+
   checkAction() {
     if(this.selectedAntiHero) {
       this.actionButtonLabel = "Update";
@@ -47,6 +48,5 @@ export class AntiHeroFormComponent implements OnInit {
   clear() {
      this.form.reset();
   }
-
 
 }

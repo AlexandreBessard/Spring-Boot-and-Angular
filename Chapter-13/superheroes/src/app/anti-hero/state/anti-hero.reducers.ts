@@ -10,9 +10,12 @@ export const initialState: AntiHeroState = {
     antiHeroes: []
 }
 
+// Reducer for deleting data from our store
 export const antiHeroReducer = createReducer(
   initialState,
   on(setAntiHeroList, (state, { antiHeroes }) => { return {...state, antiHeroes}}),
+  // ID as string props mentioned from actions
+  // If the reducer successfully modifies the value of the antiHeroes state, any selector subscribed to the changes of this state will emit new value in the component
   on(removeAntiHeroState, (state, { antiHeroId }) => {
     return {...state, antiHeroes: state.antiHeroes.filter(data => data.id != antiHeroId)}
   }),

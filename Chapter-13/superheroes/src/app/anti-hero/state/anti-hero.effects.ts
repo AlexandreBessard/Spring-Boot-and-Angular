@@ -32,6 +32,7 @@ export class AntiHeroEffects {
         mergeMap((data: {type: string, payload: AntiHero}) => this.antiHeroService.addAntiHero(data.payload)
           .pipe(
             map(antiHeroes => ({ type: AntiHeroActions.ADD_ANTI_HERO_STATE, antiHero: data.payload })),
+            // redirect after creating new antiHero
             tap(() =>  this.router.navigate(["anti-heroes"])),
             catchError(() => EMPTY)
           ))

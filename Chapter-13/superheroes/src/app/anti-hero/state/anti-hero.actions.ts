@@ -36,7 +36,8 @@ export const modifyAntiHeroState = createAction(
     AntiHeroActions.MODIFY_ANTI_HERO_STATE,
     props<{ antiHero: AntiHero }>()
 );
- 
+
+// The ID is needed for the reducer to identify what data we should delete from our store
 export const removeAntiHeroState = createAction(
     AntiHeroActions.REMOVE_ANTI_HERO_STATE,
   props<{ antiHeroId: string }>()
