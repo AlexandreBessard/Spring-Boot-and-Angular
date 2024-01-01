@@ -39,6 +39,7 @@ export function tokenGetter() {
       }
     })
   ],
+  // Intercept every HTTP request and add JWT token in the request headers
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }
   ],

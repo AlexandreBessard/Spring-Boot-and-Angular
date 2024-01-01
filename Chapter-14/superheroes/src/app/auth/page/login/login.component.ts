@@ -37,6 +37,7 @@ export class LoginComponent{
   
 
   checkJWT() {
+    // True if the user is authenticated
     if(this.authService.isAuthenticated()) {
       this.router.navigate(['/anti-heroes'])
     }

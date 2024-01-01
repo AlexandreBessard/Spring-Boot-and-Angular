@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class AuthFormComponent implements OnInit {
   @Input() error: string = "";
   @Input() title: string = "Login"
+  // User object,pass the value to the parent component
   @Output() submitEmitter = new EventEmitter();
   form: FormGroup;
   constructor(private fb: FormBuilder) {
@@ -18,8 +19,6 @@ export class AuthFormComponent implements OnInit {
     })
 
   }
-
-
 
   ngOnInit(): void {
   }

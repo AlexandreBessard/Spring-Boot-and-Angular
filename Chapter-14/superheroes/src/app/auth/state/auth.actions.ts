@@ -1,10 +1,10 @@
 import { Action, createAction, props } from '@ngrx/store';
 import { User } from '../models/user.interface';
 
-export enum AuthActions {
- LOGIN = '[AUTH] Login',
+export enum  AuthActions {
+ LOGIN = '[AUTH] Login', // -> call login API (authenticate)
  SET_TOKEN = '[AUTH] Set Token',
- CREATE_USER = '[AUTH] Create User',
+ CREATE_USER = '[AUTH] Create User', // -> call register
  LOGIN_ERROR = '[AUTH] LOGIN_ERROR',
 }
 
